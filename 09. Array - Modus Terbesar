@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+    int n, a;
+    cin >> n;
+    int data[n];
+    int frek[100000];
+
+    //assign 0 ke semua array frekuensi
+    for(int i=0; i<100000; i++){
+        frek[i]=0;
+    }
+
+    for(int i=0;i<n;i++){
+        cin >> a;
+        frek[a-1]++;
+    }
+
+    int biggest = 0;
+    int indeks;
+    for(int i=0;i<100000;i++){
+        if(frek[i]>=biggest){
+            biggest = frek[i];
+            indeks = i;
+        }
+    }
+
+    cout << indeks+1;
+}
