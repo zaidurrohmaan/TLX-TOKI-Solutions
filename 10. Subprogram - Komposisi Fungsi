@@ -1,0 +1,22 @@
+[THIS CODE WILL RESULT RTE]
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int fx(int a, int b , int x, int k){
+    if(k==1){
+        return abs(a*x+b);
+    }
+    else{
+        return abs(a*(fx(a,b,x,k--))+b);
+    }
+}
+
+int main(int argc, char const *argv[])
+{
+  int  a,b,k,x;
+  cin >> a >> b >> k >> x;
+
+  cout << fx(a,b,x,k);
+}
