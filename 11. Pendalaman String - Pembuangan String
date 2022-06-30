@@ -1,0 +1,16 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+  string s,t;
+  cin >> s >>t;
+
+  while(s.find(t)<s.length() && s.find(t) >= 0){
+    int x = s.find(t);
+    s.erase(x,t.length());
+  }
+
+  cout << s;
+}
