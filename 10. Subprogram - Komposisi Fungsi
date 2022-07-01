@@ -1,13 +1,10 @@
-[CODE #1]
-[THIS CODE WILL RESULT RTE]
-
 #include <iostream>
 #include <cmath>
 using namespace std;
 
 int fx(int a, int b , int x, int k){
-    if(k==1){
-        return abs(a*x+b);
+    if(k==0){
+        return x;
     }
     else{
         return abs(a*(fx(a,b,x,k--))+b);
@@ -22,42 +19,4 @@ int main(int argc, char const *argv[])
   cout << fx(a,b,x,k);
 }
 
-###########################################
-###########################################
 
-[CODE #2]
-[THIS CODE WILL RESULT WA (80 pts)]
-
-#include <iostream>
-#include <cmath>
-using namespace std;
-
-int fx(int a, int b , int x){
-    return abs(a*x+b);
-}
-
-int main(int argc, char const *argv[])
-{
-  int  a,b,x,k;
-  cin >> a >> b >> k >> x;
-
-  int result;
-  int temp = fx(a,b,x);
-
-  if(k==1){
-    cout << temp;
-  }
-  else{
-    for(int i=2;i<=k;i++){
-      result = abs(a*temp+b);
-      if(i>=2){
-        temp = result;
-      }
-      else{
-        temp = temp;
-      }
-      
-    }
-  }
-  cout<<result;
-}
