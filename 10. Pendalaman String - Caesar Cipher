@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+  string s;
+  int k;
+
+  cin >> s >> k;
+  int len = s.length();
+  for(int j=0; j<len;j++){
+    if(s[j]+k <= 122){
+      s[j] += k;
+    }
+    else{
+      s[j] = ((s[j]+k)%122 + 96);
+    }
+  }
+
+  cout << s;
+}
