@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int r, c, grid[25][25];
+int rstart, cstart;
+bool visited[25][25];
+
+bool inside(int row, int col){
+    return 0 <= row && row < r && 0 <= col && col < c;
+}
+
+int rec(int row, int col){
+    if(!inside(row,col)) return 0;
+    if(grid[row][col] != grid[rstart][cstart]) return 0;
+    if(visited[row][col]) return 0;
+
+    visited[row][col] = true;
+    return rec(row-1, col) + rec(row+1, col) + rec(row, col-1) + rec(row, col+1) + 1;
+}
+
+int main(){
+    cin >> r >> c;
+    for(int i=0;i<r;i++){
+        for(int j=0;j<c;j++){
+            cin >> grid[i][j];
+            visited[i][j] = 0;
+        }
+    }
+    cin >> rstart >> cstart;
+    int size = rec(rstart, cstart);
+    cout << size*(size-1);
+}
